@@ -22,6 +22,6 @@ function removeTransform(e) {
     e.target.classList.remove('playing'); //remove the playing class from the key, we need to use this because we are inside the function and we are referring to the key that is being played
 }
 const keys = Array.from(document.querySelectorAll('.key')); //// transition end event listener, we need this because we want to remove the playing class after the transition ends so it wont get out of sync, since we have transition in our css file. 
-keys.forEach(key=> key.addEventListener('transitioned', removeTransition)); //we need to code it this way to remove the transition from all the keys 
+keys.forEach(key=> key.addEventListener('transitionend', removeTransition)); //we need to code it this way to remove the transition from all the keys 
 
 window.addEventListener('keydown', playSound); // this goes last because we want to add the event listener to the window, we want to listen for the keydown event on the window, when a key is pressed, it will run the playSound function
